@@ -4,15 +4,13 @@
   margin: 0 auto;
 }
 
-.container {
-  width: 100%;
+.wrapper {
+  display: flex;
+  flex-direction: row;
 }
 
-.search-bar {
-  width: 250px;
-  height: 30px;
-  font-size: 18px;
-  margin: 0 auto;
+.container {
+  width: 100%;
 }
 
 .notes-container {
