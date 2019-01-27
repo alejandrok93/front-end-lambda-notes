@@ -22,7 +22,7 @@ class App extends Component {
 	}
 
 	componentDidMount() {
-		url = 'https://lambda-notes-backend-project.herokuapp.com/api/notes';
+		const url = 'https://lambda-notes-backend-project.herokuapp.com/api/notes';
 		const token = localStorage.getItem('jwt');
 		const options = {
 			headers: {
