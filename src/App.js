@@ -22,10 +22,18 @@ class App extends Component {
 	}
 
 	componentDidMount() {
-		console.log(process.env.REACT_APP_CLIENT_ID);
+		url = 'https://lambda-notes-backend-project.herokuapp.com/api/notes';
+		const token = localStorage.getItem('jwt');
+		const options = {
+			headers: {
+				Authorization: token
+			}
+		};
+		console.log('adding new note! ');
+		console.log(token);
 		//Get notes from Backend Project - 10/29/2018
 		axios
-			.get('https://lambda-notes-backend-project.herokuapp.com/api/notes')
+			.get(url, options)
 			.then(response => {
 				console.log(response);
 				this.setState({ ...this.state, notes: response.data });
@@ -42,6 +50,8 @@ class App extends Component {
 				Authorization: token
 			}
 		};
+		console.log('adding new note! ');
+		console.log(token);
 		if (note.title.length > 0) {
 			axios
 				.post(url, note, options)
