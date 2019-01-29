@@ -1,61 +1,62 @@
 .App {
-  max-width: 990px;
-  display: flex;
-  margin: 0 auto;
+	max-width: 990px;
+	display: flex;
+	margin: 0 auto;
 }
 
 .wrapper {
-  display: flex;
-  flex-direction: row;
+	display: flex;
+	flex-direction: row;
 }
 
 .container {
-  width: 100%;
+	width: 100%;
 }
 
 .notes-container {
-  max-width: 740px;
-  width: 100%;
-  min-height: 600px;
-  margin: 0 auto;
-  border: 1px solid black;
-  background-color: whitesmoke;
+	max-width: 741px;
+	width: 100%;
+	min-height: 600px;
+	margin: 0 auto;
+	border: 1px solid black;
+	background-color: whitesmoke;
+	border-left: 0px;
 }
 @media (max-width: 550px) {
-  .App {
-    flex-direction: column;
-  }
+	.App {
+		flex-direction: column;
+	}
 }
 
 .notes-container h1 {
-  /* why is this not getting applied? */
-  margin: 20px 25px;
-  margin-top: 40px;
-  font-size: 24px;
-  color: black;
+	/* why is this not getting applied? */
+	margin: 20px 25px;
+	margin-top: 40px;
+	font-size: 24px;
+	color: black;
 }
 
 .button {
-  width: 200px;
-  height: 35px;
-  padding-top: 10px;
-  text-align: center;
-  margin: 20px 10px;
-  background-color: #30b8bc;
-  color: white;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 18px;
+	width: 200px;
+	height: 35px;
+	padding-top: 10px;
+	text-align: center;
+	margin: 20px 10px;
+	background-color: #30b8bc;
+	color: white;
+	cursor: pointer;
+	font-weight: bold;
+	font-size: 18px;
 
-  border: 1px solid gray;
+	border: 1px solid gray;
 }
 
 .button:hover {
-  box-shadow: 1px 5px 5px rgba(0, 0, 0, 0.5);
+	box-shadow: 1px 5px 5px rgba(0, 0, 0, 0.5);
 }
 
 @media (max-width: 550px) {
-  .button {
-    margin: 10px;
-  }
+	.button {
+		margin: 10px;
+	}
 }
