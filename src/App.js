@@ -29,8 +29,6 @@ class App extends Component {
 				Authorization: token
 			}
 		};
-		console.log('adding new note! ');
-		console.log(token);
 		//Get notes from Backend Project - 10/29/2018
 		axios
 			.get(url, options)
@@ -50,8 +48,6 @@ class App extends Component {
 				Authorization: token
 			}
 		};
-		console.log('adding new note! ');
-		console.log(token);
 		if (note.title.length > 0) {
 			axios
 				.post(url, note, options)
