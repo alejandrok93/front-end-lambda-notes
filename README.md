@@ -1,12 +1,17 @@
+## Lambda Notes 
 
-## Code Challenges
+This repository is the frontend project for Lambda School's frontend curriculum. It is a React web application to create, update, and delete notes. The web application connects to a Node.js API for managing data persisstency. The applications has login functionality using JWT for authentication. 
 
-This repository contains code challenges to test algorithm, data structures, and general problem solving abilities. The goal of these challenges is to improve my ability to solve algorithmic problems and prepare for coding interviews. The code challenges are done in Python and Javascript.
+These are the following features in the application:
 
-The code challenges are done every day and sourced from the following resources:
+- Create an account
+- Login to an existing account
+- View your notes
+- Create a new note
+- Edit an existing note
+- Delete an existing note
 
-- Lambda School Daily Code Challenge
-- HackerRank
-- Interview Cake
-- LeetCode
-- Pramp
+
+
+
+Live site: https://lambda-notes-alejandrok.netlify.com
