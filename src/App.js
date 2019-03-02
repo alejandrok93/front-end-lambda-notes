@@ -124,6 +124,14 @@ class App extends Component {
 		return note;
 	}
 
+	handleLogOut = e => {
+		//remove JWT
+		localStorage.removeItem('jwt');
+		console.log(this);
+		//e.preventDefault();
+
+		//Push to main component to redirect to login
+	};
 	handleSearch = term => {
 		let options = {
 			shouldSort: true,
@@ -146,7 +154,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<Menu />
+				<Menu handleLogOut={this.handleLogOut} />
 				<div className="container">
 					{/* <SearchBar handleSearch={this.handleSearch} /> */}
 					<Route
