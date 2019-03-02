@@ -59,15 +59,12 @@ class App extends Component {
 								this.setState({ ...this.state, notes: response.data })
 							)
 							.catch(err => {
-								console.log(
-									'there was an authorization error with token ' + token
-								);
 								console.log(err);
 							});
 					}
 				})
 				.catch(err => {
-					console.log('there was an authorization error with token ' + token);
+					//console.log('there was an authorization error with token ' + token);
 					console.log(err);
 				});
 		}
@@ -76,11 +73,17 @@ class App extends Component {
 	deleteNote(id) {
 		const url = `https://lambda-notes-backend-project.herokuapp.com/api/notes/`;
 		const url_with_id = `https://lambda-notes-backend-project.herokuapp.com/api/notes/${id}`;
+		const token = localStorage.getItem('jwt');
+		const options = {
+			headers: {
+				Authorization: token
+			}
+		};
 		axios
 			.delete(url_with_id)
 			.then(res => {
 				axios
-					.get(url)
+					.get(url, options)
 					.then(response =>
 						this.setState({ ...this.state, notes: response.data })
 					)
@@ -93,11 +96,17 @@ class App extends Component {
 		const id = updatedNote.id;
 		const url = `https://lambda-notes-backend-project.herokuapp.com/api/notes/`;
 		const url_with_id = `https://lambda-notes-backend-project.herokuapp.com/api/notes/${id}`;
+		const token = localStorage.getItem('jwt');
+		const options = {
+			headers: {
+				Authorization: token
+			}
+		};
 		axios
 			.put(url_with_id, updatedNote)
 			.then(res => {
 				axios
-					.get(url)
+					.get(url, options)
 					.then(response =>
 						this.setState({ ...this.state, notes: response.data })
 					)
