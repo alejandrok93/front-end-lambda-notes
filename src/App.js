@@ -54,14 +54,22 @@ class App extends Component {
 				.then(response => {
 					if (response.status === 201) {
 						axios
-							.get(url)
+							.get(url, options)
 							.then(response =>
 								this.setState({ ...this.state, notes: response.data })
 							)
-							.catch(err => console.log(err));
+							.catch(err => {
+								console.log(
+									'there was an authorization error with token ' + token
+								);
+								console.log(err);
+							});
 					}
 				})
-				.catch(err => console.log(err));
+				.catch(err => {
+					console.log('there was an authorization error with token ' + token);
+					console.log(err);
+				});
 		}
 	}
 
