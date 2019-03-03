@@ -9,7 +9,7 @@ const NotesList = props => {
 			<h1>Your Notes:</h1>
 			<div className="notes-blocks">
 				{props.notes.map(note => (
-					<Note note={note} />
+					<Note key={note.id} note={note} />
 				))}
 			</div>
 		</div>

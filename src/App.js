@@ -12,12 +12,15 @@ import NewNote from './components/NewNote/NewNote';
 import NoteView from './components/NoteView/NoteView';
 import Authenticate from './components/Authenticate/Authenticate.js';
 import SearchBar from './components/SearchBar/SearchBar.js';
-
+import Pagination from './components/Pagination.js';
 class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			notes: []
+			notes: [],
+			numberOfNotes: 0,
+			indexBeg: 0,
+			indexEnd: 10
 		};
 	}
 
@@ -33,8 +36,13 @@ class App extends Component {
 		axios
 			.get(url, options)
 			.then(response => {
-				console.log(response);
-				this.setState({ ...this.state, notes: response.data });
+				//console.log(response);
+
+				this.setState({
+					...this.state,
+					notes: response.data,
+					numberOfNotes: response.data.length
+				});
 			})
 			.catch(err => console.log(err));
 	}
@@ -151,6 +159,37 @@ class App extends Component {
 			console.log(result);
 		}
 	};
+
+	nextPage = () => {
+		console.log(
+			'lets go to next page, notes length is: ' + this.state.notes.length
+		);
+		if (this.state.notes.length >= this.state.indexEnd) {
+			// cannot show next results, reached end of notes
+			console.log(
+				'Cannot show next notes! End Index is: ' + this.state.indexEnd
+			);
+		} else {
+			this.setState({
+				indexBeg: this.state.indexBeg + 10,
+				indexEnd: this.state.indexEnd + 10
+			});
+		}
+	};
+
+	prevPage = () => {
+		if (this.state.indexBeg >= 0) {
+			// cannot show next results, reached end of notes
+			console.log(
+				'Cannot show previous notes! Beginnig Index is:' + this.state.indexBeg
+			);
+		} else {
+			this.setState({
+				indexBeg: this.state.indexBeg - 10,
+				indexEnd: this.state.indexEnd - 10
+			});
+		}
+	};
 	render() {
 		return (
 			<div className="App">
@@ -160,8 +199,26 @@ class App extends Component {
 					<Route
 						exact
 						path="/"
-						render={props => <NotesList {...props} notes={this.state.notes} />}
+						render={props => {
+							return (
+								<div>
+									<NotesList
+										{...props}
+										notes={this.state.notes.slice(
+											this.state.indexBeg,
+											this.state.indexEnd
+										)}
+									/>
+									<Pagination
+										prevPage={this.prevPage}
+										nextPage={this.nextPage}
+										numberOfNotes={this.state.numberOfNotes}
+									/>
+								</div>
+							);
+						}}
 					/>
+
 					<Route
 						exact
 						path="/notes/:id"
