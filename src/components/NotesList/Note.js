@@ -10,7 +10,6 @@ const Note = props => {
 					{props.note.content.substring(0, 110)}
 					...
 				</p>
-				<p>{props.note.id}</p>
 			</div>
 		</Link>
 	);
