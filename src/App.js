@@ -162,32 +162,41 @@ class App extends Component {
 
 	nextPage = () => {
 		console.log(
-			'lets go to next page, notes length is: ' + this.state.notes.length
+			'lets go to next page, notes length is: ' +
+				this.state.notes.length +
+				', end index is  ' +
+				this.state.indexEnd
 		);
-		if (this.state.notes.length >= this.state.indexEnd) {
-			// cannot show next results, reached end of notes
-			console.log(
-				'Cannot show next notes! End Index is: ' + this.state.indexEnd
-			);
-		} else {
+		if (this.state.notes.length > this.state.indexEnd) {
 			this.setState({
 				indexBeg: this.state.indexBeg + 10,
 				indexEnd: this.state.indexEnd + 10
 			});
+		} else {
+			// cannot show next results, reached end of notes
+			console.log(
+				'Cannot show next notes! End Index is: ' + this.state.indexEnd
+			);
 		}
 	};
 
 	prevPage = () => {
-		if (this.state.indexBeg >= 0) {
-			// cannot show next results, reached end of notes
-			console.log(
-				'Cannot show previous notes! Beginnig Index is:' + this.state.indexBeg
-			);
-		} else {
+		console.log(
+			'lets go to prev page, notes length is: ' +
+				this.state.notes.length +
+				', beginning index is  ' +
+				this.state.indexBeg
+		);
+		if (this.state.indexBeg > 0) {
 			this.setState({
 				indexBeg: this.state.indexBeg - 10,
 				indexEnd: this.state.indexEnd - 10
 			});
+		} else {
+			// cannot show next results, reached end of notes
+			console.log(
+				'Cannot show previous notes! Beginnig Index is:' + this.state.indexBeg
+			);
 		}
 	};
 	render() {
@@ -209,11 +218,13 @@ class App extends Component {
 											this.state.indexEnd
 										)}
 									/>
-									<Pagination
-										prevPage={this.prevPage}
-										nextPage={this.nextPage}
-										numberOfNotes={this.state.numberOfNotes}
-									/>
+									{this.state.notes.length > 10 ? (
+										<Pagination
+											prevPage={this.prevPage}
+											nextPage={this.nextPage}
+											numberOfNotes={this.state.notes.length}
+										/>
+									) : null}
 								</div>
 							);
 						}}
