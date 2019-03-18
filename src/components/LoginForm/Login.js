@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import LoginAlert from './LoginAlert';
 
 class Login extends React.Component {
 	constructor() {
@@ -26,11 +27,17 @@ class Login extends React.Component {
 		axios
 			.post(url, user)
 			.then(response => {
+				console.log(response);
 				console.log(response.data);
 				localStorage.setItem('jwt', response.data.token);
 				window.location.reload();
 			})
-			.catch(err => console.log(err));
+			.catch(err => {
+				if (err.response.status === 400) {
+					this.setState({ loginAlert: true });
+				}
+				console.log(err);
+			});
 
 		this.setState({ username: '', password: '' });
 	}
@@ -38,6 +45,11 @@ class Login extends React.Component {
 		return (
 			<div className="login-form">
 				<h1>Please log in</h1>
+				{this.state.loginAlert ? (
+					<LoginAlert
+						message={'There was an error with the username or password'}
+					/>
+				) : null}
 				<form>
 					<input
 						type="text"

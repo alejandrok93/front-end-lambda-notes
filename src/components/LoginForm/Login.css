@@ -1,6 +1,6 @@
 .form {
-	width: 450px;
-	height: 400px;
+	width: 480px;
+	height: 450px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -67,4 +67,18 @@
 
 .selected {
 	background-color: lightgray;
+}
+
+.login-alert {
+	width: 85%;
+	height: 50px;
+	margin: 0 auto;
+	border: 1px solid red;
+	background-color: red;
+	border-radius: 5px;
+	color: white;
+}
+
+.login-alert p {
+	margin: 10px 20px;
 }
