@@ -43,7 +43,7 @@ class Login extends React.Component {
 	}
 	render() {
 		return (
-			<div className="login-form">
+			<div className="form-container login-container">
 				<h1>Please log in</h1>
 				{this.state.loginAlert ? (
 					<LoginAlert
@@ -65,7 +65,9 @@ class Login extends React.Component {
 						onChange={e => this.handleInput(e)}
 						placeholder="Password"
 					/>
-					<button onClick={e => this.handleSubmit(e)}>Login</button>
+					<button className="login-button" onClick={e => this.handleSubmit(e)}>
+						Login
+					</button>
 				</form>
 			</div>
 		);
