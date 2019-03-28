@@ -31,10 +31,6 @@ class LoginForm extends React.Component {
 					this.state.rightPanelActive === false ? '' : 'register-form-active'
 				}`}
 			>
-				{/* <Route exact path="/" component={Login} />
-				<Route exact path="/login" component={Login} />
-				<Route exact path="/register" component={Register} /> */}
-
 				<Login />
 				<Register />
 				<div className="overlay-container">

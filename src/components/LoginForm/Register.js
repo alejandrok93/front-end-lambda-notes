@@ -19,7 +19,7 @@ class Register extends React.Component {
 			password: this.state.password
 		};
 		if (!user.username || !user.password) {
-			alert('Please add a username or password ');
+			alert('Please create a username and password ');
 		}
 		const url =
 			'https://lambda-notes-backend-project.herokuapp.com/api/users/register';
