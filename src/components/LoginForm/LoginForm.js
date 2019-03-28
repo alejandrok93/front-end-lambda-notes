@@ -25,37 +25,39 @@ class LoginForm extends React.Component {
 	};
 	render() {
 		return (
-			<div
-				id="container"
-				className={`container ${
-					this.state.rightPanelActive === false ? '' : 'register-form-active'
-				}`}
-			>
-				<Login />
-				<Register />
-				<div className="overlay-container">
-					<div className="overlay">
-						<div className="overlay-panel overlay-left">
-							<h1>Welcome Back!</h1>
-							<p>Please log in with your username and password</p>
-							<button
-								onClick={this.handleClick}
-								value="login"
-								className="ghost login-button"
-							>
-								Login
-							</button>
-						</div>
-						<div className="overlay-panel overlay-right">
-							<h1>Hi there</h1>
-							<p>Please create an account with a username and password</p>
-							<button
-								onClick={this.handleClick}
-								value="register"
-								className="ghost login-button"
-							>
-								Register
-							</button>
+			<div className="wrapper">
+				<div
+					id="container"
+					className={`container ${
+						this.state.rightPanelActive === false ? '' : 'register-form-active'
+					}`}
+				>
+					<Login />
+					<Register />
+					<div className="overlay-container">
+						<div className="overlay">
+							<div className="overlay-panel overlay-left">
+								<h1>Welcome Back!</h1>
+								<p>Please log in with your username and password</p>
+								<button
+									onClick={this.handleClick}
+									value="login"
+									className="ghost login-button"
+								>
+									Login
+								</button>
+							</div>
+							<div className="overlay-panel overlay-right">
+								<h1>Hi there</h1>
+								<p>Please create an account with a username and password</p>
+								<button
+									onClick={this.handleClick}
+									value="register"
+									className="ghost login-button"
+								>
+									Register
+								</button>
+							</div>
 						</div>
 					</div>
 				</div>
