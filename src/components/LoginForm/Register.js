@@ -4,7 +4,7 @@ import axios from 'axios';
 class Register extends React.Component {
 	constructor() {
 		super();
-		this.state = { username: '', password: '' };
+		this.state = { username: '', password: '', isRegistering: false };
 	}
 
 	handleInput(e) {
@@ -13,7 +13,7 @@ class Register extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-
+		this.setState({ isRegistering: true });
 		const user = {
 			username: this.state.username,
 			password: this.state.password
@@ -54,7 +54,9 @@ class Register extends React.Component {
 						placeholder="Password"
 					/>
 					<button className="login-button" onClick={e => this.handleSubmit(e)}>
-						Register
+						{this.state.isRegistering === false
+							? 'Register'
+							: 'Creating an account...'}
 					</button>
 				</form>
 			</div>
