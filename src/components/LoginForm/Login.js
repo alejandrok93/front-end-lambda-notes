@@ -5,7 +5,7 @@ import LoginAlert from './LoginAlert';
 class Login extends React.Component {
 	constructor() {
 		super();
-		this.state = { username: '', password: '' };
+		this.state = { username: '', password: '', isLoggingIn: false };
 	}
 
 	handleInput(e) {
@@ -14,7 +14,7 @@ class Login extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-
+		this.setState({ isLoggingIn: true });
 		const user = {
 			username: this.state.username,
 			password: this.state.password
@@ -27,8 +27,6 @@ class Login extends React.Component {
 		axios
 			.post(url, user)
 			.then(response => {
-				console.log(response);
-				console.log(response.data);
 				localStorage.setItem('jwt', response.data.token);
 				window.location.reload();
 			})
@@ -66,7 +64,7 @@ class Login extends React.Component {
 						placeholder="Password"
 					/>
 					<button className="login-button" onClick={e => this.handleSubmit(e)}>
-						Login
+						{this.state.isLoggingIn === false ? 'Login' : 'Logging in....'}
 					</button>
 				</form>
 			</div>
