@@ -72,6 +72,11 @@
 
 */
 
+.wrapper {
+	background-color: whitesmoke;
+	width: 100%;
+}
+
 /* Login alert for wrong username or password */
 
 .login-alert {
