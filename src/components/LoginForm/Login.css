@@ -69,9 +69,14 @@
 	background-color: lightgray;
 }
 
+
+*/
+
+/* Login alert for wrong username or password */
+
 .login-alert {
-	width: 85%;
-	height: 50px;
+	width: 90%;
+	height: 60px;
 	margin: 0 auto;
 	border: 1px solid red;
 	background-color: red;
@@ -79,9 +84,9 @@
 	color: white;
 }
 
-.login-alert p {
+.login-alert .alert-message {
 	margin: 10px 20px;
-} */
+}
 
 /* Updating design with sign in animation */
 
@@ -94,7 +99,7 @@
 	width: 765px;
 	max-width: 100%;
 	min-height: 480px;
-	margin: 10% auto;
+	margin: 5% auto;
 }
 
 .container h1 {
@@ -102,9 +107,16 @@
 	margin: 0;
 }
 
+.form-container form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
 .form-container h1 {
 	font-weight: bold;
-	margin: 0;
+	margin: 15px 0;
 }
 
 .form-container p {
@@ -255,7 +267,7 @@
 }
 
 .overlay-left {
-	transform: translateY(-20%);
+	transform: translateX(-20%);
 }
 
 .container.container.register-form-active .overlay-left {

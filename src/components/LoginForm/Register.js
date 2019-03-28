@@ -19,7 +19,7 @@ class Register extends React.Component {
 			password: this.state.password
 		};
 		if (!user.username || !user.password) {
-			alert('Please sign in ');
+			alert('Please add a username or password ');
 		}
 		const url =
 			'https://lambda-notes-backend-project.herokuapp.com/api/users/register';
@@ -37,13 +37,13 @@ class Register extends React.Component {
 	render() {
 		return (
 			<div className="form-container register-container">
-				<h1>Please Register</h1>
 				<form>
+					<h1 className="form-title">Register</h1>
 					<input
 						type="text"
 						name="username"
 						value={this.state.username}
-						placeholder="Username"
+						placeholder="Add a Username"
 						onChange={e => this.handleInput(e)}
 					/>
 					<input

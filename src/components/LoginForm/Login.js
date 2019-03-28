@@ -44,13 +44,13 @@ class Login extends React.Component {
 	render() {
 		return (
 			<div className="form-container login-container">
-				<h1>Please log in</h1>
-				{this.state.loginAlert ? (
-					<LoginAlert
-						message={'There was an error with the username or password'}
-					/>
-				) : null}
 				<form>
+					<h1 className="form-title">Log in</h1>
+					{this.state.loginAlert ? (
+						<LoginAlert
+							message={'There was an error with the username or password'}
+						/>
+					) : null}
 					<input
 						type="text"
 						name="username"

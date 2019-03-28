@@ -3,7 +3,7 @@ import React from 'react';
 const LoginAlert = props => {
 	return (
 		<div className="login-alert">
-			<p>{props.message}</p>
+			<p className="alert-message">{props.message}</p>
 		</div>
 	);
 };

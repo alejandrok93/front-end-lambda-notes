@@ -51,8 +51,8 @@ class LoginForm extends React.Component {
 							</button>
 						</div>
 						<div className="overlay-panel overlay-right">
-							<h1>Hello, friend!</h1>
-							<p>Please register with a username and password</p>
+							<h1>Hi there</h1>
+							<p>Please create an account with a username and password</p>
 							<button
 								onClick={this.handleClick}
 								value="register"
